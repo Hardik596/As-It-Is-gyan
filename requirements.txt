@@ -1,0 +1,60 @@
+# Core LLM + Transformers
+transformers>=4.40.0
+torch>=2.2.0
+accelerate>=0.28.0
+huggingface_hub>=0.22.0
+
+# Mistral AI client
+mistralai>=0.1.0
+langchain_mistralai
+
+# RAG Frameworks
+langchain>=0.2.0
+langchain-community>=0.2.0
+llama-index>=0.10.0
+
+# Embeddings
+sentence-transformers>=2.6.0
+
+# Vector Databases
+chromadb>=0.5.0
+faiss-cpu>=1.7.4
+
+# Document Loaders / Parsing
+pypdf>=4.0.0
+pdfplumber>=0.10.0
+python-docx>=1.1.0
+unstructured>=0.12.0
+
+# Text Processing
+tiktoken>=0.6.0
+nltk>=3.8.1
+spacy>=3.7.0
+
+# API / Backend
+fastapi>=0.110.0
+uvicorn>=0.29.0
+pydantic>=2.6.0
+
+# Utilities
+python-dotenv>=1.0.1
+requests>=2.31.0
+tqdm>=4.66.0
+numpy>=1.26.0
+pandas>=2.2.0
+
+# Logging & Monitoring
+loguru>=0.7.2
+
+# Optional (but useful)
+gradio>=4.20.0
+streamlit>=1.33.0
+
+# Evaluation (RAG quality)
+ragas>=0.1.0
+
+# Tokenization / Performance
+sentencepiece>=0.2.0
+
+# Async support
+aiohttp>=3.9.0
