@@ -728,7 +728,21 @@
       autoResize(userInput);
       userInput.focus();
     }
+    // ── Auto-resize textarea as user types ─────────────────────
+    function autoResize(el) {
+      el.style.height = 'auto';
+      el.style.height = Math.min(el.scrollHeight, 150) + 'px';
+    }
 
+    // ── ADD THIS RIGHT HERE ─────────────────────────────────────
+    function renderMarkdown(text) {
+      text = text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+      text = text.replace(/^&gt;\s?\*?(.+?)\*?$/gm, '<blockquote>$1</blockquote>');
+      text = text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+      text = text.replace(/\*(.+?)\*/g, '<em>$1</em>');
+      text = text.replace(/\n/g, '<br>');
+      return text;
+    }
     // ── Append a chat bubble to the messages area ───────────────
     function appendMessage(role, text, sources = []) {
       // Hide the welcome screen once conversation starts
@@ -746,7 +760,7 @@
       const bubble = document.createElement('div');
       bubble.className = 'bubble';
       // Convert newlines to <br> for display
-      bubble.innerHTML = text.replace(/\n/g, '<br>');
+      bubble.innerHTML = renderMarkdown(text);
 
       // Source tags (only on AI messages)
       if (role === 'ai' && sources.length > 0) {
@@ -770,7 +784,7 @@
 
       return bubble; // Return reference for the typing indicator update
     }
-
+    
     // ── Show animated typing indicator while waiting ────────────
     function showTypingIndicator() {
       if (welcomeScreen) welcomeScreen.style.display = 'none';
