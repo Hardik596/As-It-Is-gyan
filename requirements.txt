@@ -4,6 +4,9 @@ torch>=2.2.0
 accelerate>=0.28.0
 huggingface_hub>=0.22.0
 
+flask
+gunicorn
+
 # Mistral AI client
 mistralai>=0.1.0
 langchain_mistralai
