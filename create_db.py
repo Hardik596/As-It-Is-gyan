@@ -16,7 +16,7 @@ data = PyPDFLoader("Bhagavad-gita-As-It-Is.pdf")
 docs = data.load()
 
 splitter = RecursiveCharacterTextSplitter(
-    chunk_size=1000,
+    chunk_size=2000,
     chunk_overlap=200
 )
 
